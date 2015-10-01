@@ -78,10 +78,10 @@ public class Test : MonoBehaviour {
 			AndroidJavaObject jo=jc.GetStatic<AndroidJavaObject>("currentActivity");  
 			jo.Call("StopSeverAndThread");  
 		}
-		if (GUI.Button(new Rect(50, 450, 200, 50), "Start Chat")){
+		if (GUI.Button(new Rect(50, 450, 200, 50), "SendBluetoothMsg")){
 			AndroidJavaClass jc=new AndroidJavaClass("com.unity3d.player.UnityPlayer");  
 			AndroidJavaObject jo=jc.GetStatic<AndroidJavaObject>("currentActivity");  
-			jo.Call("setupChat");  
+			jo.Call("SendBluetoothMsgForUnity","Test");  
 		}
 	}
 }

@@ -200,10 +200,11 @@ public class UnityPlayerExtendActivity extends UnityPlayerActivity {
     private void connectDevice(Intent data) {
         
         try{
-        	CallToast("Start Connecting!");
+        	
             // Get the device MAC address
             String address = data.getExtras()
                     .getString(DeviceListActivity.EXTRA_DEVICE_ADDRESS);
+            CallToast("Start Connecting!" + address);
             // Get the BluetoothDevice object
             BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(address);
         	
@@ -213,7 +214,7 @@ public class UnityPlayerExtendActivity extends UnityPlayerActivity {
 
         }
         catch(Exception ex){
-        	CallToast("Connect Exception!");
+        	CallToast("Connect Exception!" + ex.getMessage());
         }
         // Attempt to connect to the device
         
@@ -257,6 +258,13 @@ public class UnityPlayerExtendActivity extends UnityPlayerActivity {
                     if (null != this) {
                     	CallToast(msg.getData().getString(Constants.TOAST));
                     }
+                    break;
+                case Constants.MESSAGE_READ:
+                    byte[] readBuf = (byte[]) msg.obj;
+                    // construct a string from the valid bytes in the buffer
+                    String readMessage = new String(readBuf, 0, msg.arg1);
+                	CallToast(readMessage);
+                	InvokeUnity("MsgFromAndroidThread",readMessage);
                     break;
             }
         }

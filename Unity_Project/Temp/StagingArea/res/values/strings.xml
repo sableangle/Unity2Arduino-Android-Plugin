@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Unity_Bluetooth</string>
+  <string name="hello_world">Hello world!</string>
+  <string name="action_settings">Settings</string>
+  <string name="ok_press">按下了確定</string>
+  <string name="close_press">按下了關閉</string>
+  <string name="button_scan">Scan</string>
+  <string name="title_paired_devices">Paired</string>
+  <string name="title_other_devices">Other</string>
+  <string name="new_devices">New Device</string>
+  <string name="none_paired">None Paired</string>
+  <string name="scanning">Scanning</string>
+  <string name="select_device">Select Device</string>
+  <string name="none_found">No Found</string>
+  <string name="sample_show_test">Test</string>
+</resources>
