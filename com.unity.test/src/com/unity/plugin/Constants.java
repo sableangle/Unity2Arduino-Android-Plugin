@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.unity.test;
+package com.unity.plugin;
 
 /**
  * Defines several constants used between {@link BluetoothChatService} and the UI.

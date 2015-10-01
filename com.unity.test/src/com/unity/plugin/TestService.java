@@ -1,4 +1,4 @@
-package com.unity.test;
+package com.unity.plugin;
 
 import com.unity3d.player.UnityPlayer;
 

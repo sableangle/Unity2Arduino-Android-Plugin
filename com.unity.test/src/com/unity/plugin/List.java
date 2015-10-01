@@ -1,4 +1,6 @@
-package com.unity.test;
+package com.unity.plugin;
+
+import com.unity.test.R;
 
 import android.app.Activity;
 import android.os.Bundle;

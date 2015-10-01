@@ -1,4 +1,4 @@
-package com.unity.test;
+package com.unity.plugin;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;

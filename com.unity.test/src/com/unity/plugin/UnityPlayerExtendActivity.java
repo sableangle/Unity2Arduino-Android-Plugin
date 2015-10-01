@@ -1,8 +1,9 @@
-package com.unity.test;
+package com.unity.plugin;
 import com.unity3d.player.UnityPlayerActivity;
 
 import java.io.OutputStream;
 
+import com.unity.test.R;
 import com.unity3d.player.UnityPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -125,19 +126,19 @@ public class UnityPlayerExtendActivity extends UnityPlayerActivity {
 	            @Override  
 	            public void run()   
 	            {  
-	                //创建Builder  
+	                //??�建Builder  
 	                AlertDialog.Builder mBuilder=new AlertDialog.Builder(new ContextThemeWrapper(UnityPlayerExtendActivity.this, R.style.AlertDialogCustom));  
-	                //创建对话框  
+	                //??�建对�?��??  
 	                mBuilder.setTitle(mTitle)  
 	                        .setMessage(mContent)
-	                		.setPositiveButton("确定", 
+	                		.setPositiveButton("确�??", 
 	                			new DialogInterface.OnClickListener(){
 		                            public void onClick(
 		                                DialogInterface dialoginterface, int i){
 		                            		Toast.makeText(mContext, R.string.ok_press, Toast.LENGTH_LONG).show();		                            	}
 		                        }
 	                		)
-	                        .setNegativeButton("關閉", 
+	                        .setNegativeButton("??��??", 
 	                        	new DialogInterface.OnClickListener(){
 		                            public void onClick(
 		                                DialogInterface dialoginterface, int i){
@@ -145,7 +146,7 @@ public class UnityPlayerExtendActivity extends UnityPlayerActivity {
 		                            }
 	                        	}
 	                        );  
-	                //显示对话框  
+	                //?��示对话�??  
 	                mBuilder.show();  
 	            }  
 	        });  

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.unity.test"
+    package="com.unity.plugin"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -16,7 +16,7 @@
     <application
         android:allowBackup="true">
         <activity
-            android:name="com.unity.test.UnityPlayerExtendActivity"
+            android:name="com.unity.plugin.UnityPlayerExtendActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,8 +26,8 @@
             <meta-data android:name="unityplayer.UnityActivity" android:value = "true" />
             <meta-data android:name="untiyplayer.ForwardNativeEventsToDalvik" android:value="false"/>
         </activity>
-        <service android:name="com.unity.test.TestService"/>
-        <activity android:name="com.unity.test.List"/>
+        <service android:name="ccom.unity.plugin.TestService"/>
+        <activity android:name="com.unity.plugin.List"/>
        <activity
             android:name=".DeviceListActivity"
             android:configChanges="orientation|keyboardHidden"

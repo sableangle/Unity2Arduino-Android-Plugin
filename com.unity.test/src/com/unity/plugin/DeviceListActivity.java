@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.unity.test;
+package com.unity.plugin;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -36,6 +36,8 @@ import android.widget.Toast;
 
 import java.util.Set;
 import java.util.UUID;
+
+import com.unity.test.R;
 
 /**
  * This Activity appears as a dialog. It lists any paired devices and
