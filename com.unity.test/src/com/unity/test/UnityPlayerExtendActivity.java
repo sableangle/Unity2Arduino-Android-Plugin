@@ -21,9 +21,7 @@ import android.content.Intent;
 
 public class UnityPlayerExtendActivity extends UnityPlayerActivity {
 
-	// Intent request codes
-    private static final int REQUEST_CONNECT_DEVICE_SECURE = 1;
-    private static final int REQUEST_CONNECT_DEVICE_INSECURE = 2;
+	// Intent request codes	
     private static final int REQUEST_ENABLE_BT = 3;
 	
 	
@@ -90,27 +88,6 @@ public class UnityPlayerExtendActivity extends UnityPlayerActivity {
 	 * Set up the UI and background operations for chat.
 	 */
     private void setupChat() {
-
-       /* // Initialize the array adapter for the conversation thread
-        mConversationArrayAdapter = new ArrayAdapter<String>(this, R.layout.message);
-
-        mConversationView.setAdapter(mConversationArrayAdapter);
-
-        // Initialize the compose field with a listener for the return key
-        mOutEditText.setOnEditorActionListener(mWriteListener);
-
-        // Initialize the send button with a listener that for click events
-        mSendButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Send a message using content of the edit text widget
-                View view = getView();
-                if (null != view) {
-                    TextView textView = (TextView) view.findViewById(R.id.edit_text_out);
-                    String message = textView.getText().toString();
-                    sendMessage(message);
-                }
-            }
-        });*/
 
         // Initialize the BluetoothChatService to perform bluetooth connections
         mChatService = new BluetoothService(this, mHandler);
@@ -208,7 +185,7 @@ public class UnityPlayerExtendActivity extends UnityPlayerActivity {
             // Get the BluetoothDevice object
             BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(address);
         	
-            mChatService.connect(device, true);
+            mChatService.connect(device, BluetoothService.BLUETOOTH_SERIALPORT);
             
             CallToast("Try Connect finish!");
 
@@ -266,6 +243,11 @@ public class UnityPlayerExtendActivity extends UnityPlayerActivity {
                 	CallToast(readMessage);
                 	InvokeUnity("MsgFromAndroidThread",readMessage);
                     break;
+                case Constants.MESSAGE_DEVICE_NAME:
+                	String devicename = "Connected To " + msg.getData().getString(Constants.DEVICE_NAME);
+                	CallToast(devicename);
+                	InvokeUnity("MsgFromAndroidService",devicename);
+                	break;
             }
         }
     };
