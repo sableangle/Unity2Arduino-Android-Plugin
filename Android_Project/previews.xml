@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<previews>
+
+    <preview
+        name="Config1"
+        config="layout-ldltr-sw320dp-w320dp-h533dp-normal-long-port-notnight-hdpi-finger-keyssoft-nokeys-navexposed-trackball-800x480-v15"
+        device="3.7&quot; WVGA (Nexus One)"
+        devicestate="Portrait"
+        target="Android 4.0.3"
+        theme="@android:style/Theme.Holo" >
+    </preview>
+
+</previews>

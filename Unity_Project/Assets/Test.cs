@@ -4,18 +4,30 @@ using System.Collections;
 public class Test : MonoBehaviour {
 	public int ScreenHeight = 1280;
 	public int ScreenWidth = 720;
+	public enum BluetoothType : int {SerialPort = 0,Secure = 1,InSecrue = 2};
+	public BluetoothType mBluetoothType;
+	private string bluetoothTypeString;
+	private int enumInt = 0;
+	private RaycastHit hit;
+	private Camera mCamera;
 	float h;
 	float w;
 	private TextMesh ThreadMesh;
 	private TextMesh ServiceMesh;
+	private TextMesh EnumMesh;
+
 	void Awake(){
 		w = (float)Screen.width / ScreenWidth;
 		h = (float)Screen.height / ScreenHeight;
 	}
 	// Use this for initialization
 	void Start () {
+		mCamera = gameObject.GetComponent<Camera>();
 		ThreadMesh = GameObject.Find ("Thread").GetComponent<TextMesh>();
 		ServiceMesh = GameObject.Find ("Service").GetComponent<TextMesh>();
+		EnumMesh = GameObject.Find ("Enum").GetComponent<TextMesh>();
+
+		onEnumChange ();
 	}
 	void MsgFromAndroidThread(string a){
 		ThreadMesh.text = a;
@@ -25,8 +37,39 @@ public class Test : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-
+		if(Input.GetMouseButtonDown(0)){
+			if(Physics.Raycast(mCamera.ScreenPointToRay(Input.mousePosition),out hit)){
+				Debug.Log(hit.collider.name);
+				switch(hit.collider.name){
+				case "Enum":
+					if(enumInt < 2)enumInt++;
+					else enumInt = 0;
+					mBluetoothType = (BluetoothType)enumInt;
+					onEnumChange ();
+				break;
+				}
+			}
+		}
 	}
+
+
+	void onEnumChange(){
+		switch (mBluetoothType) {
+		case BluetoothType.InSecrue:
+			bluetoothTypeString = "8ce255c0-200a-11e0-ac64-0800200c9a66";
+			break;
+		case BluetoothType.Secure:
+			bluetoothTypeString = "fa87c0d0-afac-11de-8a39-0800200c9a66";
+			break;
+		case BluetoothType.SerialPort:
+			bluetoothTypeString = "00001101-0000-1000-8000-00805f9b34fb";
+			break;
+		}
+		EnumMesh.text = "Mode : " + mBluetoothType.ToString ();
+	}
+
+
+
 	void OnGUI(){
 		Matrix4x4 _matrix = GUI.matrix;
 		_matrix.m00 = w;
@@ -71,7 +114,7 @@ public class Test : MonoBehaviour {
 		if (GUI.Button(new Rect(50, 350, 200, 50), "Open The Scan Panel")){
 			AndroidJavaClass jc=new AndroidJavaClass("com.unity3d.player.UnityPlayer");  
 			AndroidJavaObject jo=jc.GetStatic<AndroidJavaObject>("currentActivity");  
-			jo.Call("OpenScanPanel");  
+			jo.Call("OpenScanPanel",bluetoothTypeString);  
 		}
 		if (GUI.Button(new Rect(300, 350, 200, 50), "ChangePage")){
 			AndroidJavaClass jc=new AndroidJavaClass("com.unity3d.player.UnityPlayer");  
@@ -84,4 +127,6 @@ public class Test : MonoBehaviour {
 			jo.Call("SendBluetoothMsgForUnity","Test");  
 		}
 	}
+
+
 }
