@@ -1,9 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Test.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PlaneController.cs">
     <Files>
-      <File FileName="Assets\Test.cs" Line="129" Column="30" />
-      <File FileName="Assets\Test.cs" Line="139" Column="1" />
+      <File FileName="Assets/UI_PowerText.cs" Line="12" Column="1" />
+      <File FileName="Assets/PlaneController.cs" Line="59" Column="30" />
+      <File FileName="Assets/Test.cs" Line="132" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
