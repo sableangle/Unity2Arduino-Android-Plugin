@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Test.cs" />
+     <None Include="Assets\Plugins\Android\res\layout\bluetooth_menu.xml" />
+     <None Include="Assets\Plugins\Android\res\layout\bluetooth_menu_body.xml" />
      <None Include="Assets\Plugins\Android\res\values\strings.xml" />
      <None Include="Assets\Plugins\Android\res\values\styles.xml" />
      <None Include="Assets\Plugins\Android\res\values-v11\styles.xml" />

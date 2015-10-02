@@ -15,5 +15,6 @@
     <string name="select_device">Select Device</string>
     <string name="none_found">No Found</string>
     <string name="sample_show_test">Test</string>
+    <string name="btn_bluetoothOn">Turn on</string>
 
 </resources>

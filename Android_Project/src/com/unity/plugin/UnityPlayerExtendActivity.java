@@ -57,8 +57,6 @@ public class UnityPlayerExtendActivity extends UnityPlayerActivity {
 		Toast.makeText(mContext,		
 				"Android Plugin Start OK!", // and re-run this program
 				Toast.LENGTH_LONG).show();
-
-		
 	}
 	
 	
@@ -164,6 +162,10 @@ public class UnityPlayerExtendActivity extends UnityPlayerActivity {
 		intent.putExtra("Bluetooth Mode", type);
 		startActivityForResult(intent, 1);
 				
+	}
+	
+	public void OpenFloatIcon(){
+		startService(new Intent(this, FloatIcon.class));
 	}
 	
 	///For Unity Methods End ///

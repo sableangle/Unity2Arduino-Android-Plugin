@@ -126,6 +126,12 @@ public class Test : MonoBehaviour {
 			AndroidJavaObject jo=jc.GetStatic<AndroidJavaObject>("currentActivity");  
 			jo.Call("SendBluetoothMsgForUnity","Test");  
 		}
+		if (GUI.Button(new Rect(300, 450, 200, 50), "SendBluetoothMsg")){
+			AndroidJavaClass jc=new AndroidJavaClass("com.unity3d.player.UnityPlayer");  
+			AndroidJavaObject jo=jc.GetStatic<AndroidJavaObject>("currentActivity");  
+			jo.Call("OpenFloatIcon");  
+		}
+
 	}
 
 
