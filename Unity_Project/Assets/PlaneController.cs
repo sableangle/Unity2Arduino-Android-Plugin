@@ -15,6 +15,8 @@ public class PlaneController : MonoBehaviour {
 	Scrollbar p4;
 
 	Scrollbar MainPower;
+	Scrollbar Kp;
+
 	Button StartBtn;
 	Text StartBtnText;
 	//
@@ -34,6 +36,8 @@ public class PlaneController : MonoBehaviour {
 	int adjSpeed4;
 
 	int baseSpeed;
+	int KpValue;
+
 
 	//java
 	AndroidJavaClass jc;
@@ -51,26 +55,34 @@ public class PlaneController : MonoBehaviour {
 		p3 = GameObject.Find ("A3").GetComponent<Scrollbar>();
 		p4 = GameObject.Find ("A4").GetComponent<Scrollbar>();
 		MainPower = GameObject.Find ("Main").GetComponent<Scrollbar>();
+		Kp = GameObject.Find ("Kp").GetComponent<Scrollbar>();
+
 		StartBtn = GameObject.Find ("StartBtn").GetComponent<Button>();
 		StartBtnText = StartBtn.GetComponentInChildren<Text>();
 
 		jc=new AndroidJavaClass("com.unity3d.player.UnityPlayer");  
 		jo=jc.GetStatic<AndroidJavaObject>("currentActivity");  
-		jo.Call("OpenFloatIcon");  
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (start) {
-			baseSpeed = (int)(MainPower.value * 9);
+			baseSpeed = (int)(MainPower.value * 10);
+			KpValue = (int)(Kp.value * 10);
+			/*
 			adjSpeed1 = (int)(p1.value * 9);
 			adjSpeed2 = (int)(p2.value * 9);
 			adjSpeed3 = (int)(p3.value * 9);
 			adjSpeed4 = (int)(p4.value * 9);
+
 			outputData = "@"+ baseSpeed +"0000" + adjSpeed1 + adjSpeed2 + adjSpeed3 + adjSpeed4;
+			*/
+			outputData = "f,"+baseSpeed+","+KpValue+",";
 			jo.Call("SendBluetoothMsgForUnity",outputData+'\n'); 
 		}
+		else{
 
+		}
 	}
 
 	public void stopAll(){
@@ -81,7 +93,12 @@ public class PlaneController : MonoBehaviour {
 	}
 
 	public void ChangeState(){
+		if (start) {
+			outputData = "b,";
+			jo.Call("SendBluetoothMsgForUnity",outputData+'\n'); 		
+		}
 		start = !start;
+
 		StartBtnText.text = start.ToString ();
 	}
 
