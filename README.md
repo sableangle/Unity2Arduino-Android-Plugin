@@ -1,9 +1,9 @@
-# Unity2Arduino-Android-Plugin
-This is a Unity3D Plugin for Android Bluetooth connecting Arduino.
+## Unity2Arduino-Android-Plugin
+###This is a Unity3D Plugin for Android Bluetooth connecting Arduino.
 
-Note:Some bluetooth connection code was base on google BluetoothChat Example Project.
+####Note:Some bluetooth connection code was base on google BluetoothChat Example Project.
 
-1. Android Part
+###Part.1 Android Project
 
 The Android Project is an Eclipse Android Project, Do not use the Android Studio.
 "com.unity.test" is the android plugin project with source code.
@@ -13,13 +13,14 @@ To use this plugin just include to your Eclipse and export jar file to follow Pa
  
 Just replace the blue.jar file.
 
-2. Unity3D Part
+###Part.2 Unity3D Project
 The Unity Project has already include the android plugin.
 See the Test.cs file to show how to use the plugin.
 Note:it is still processing so the code may be a little dirty.
 
 Enjoy.
 
+##
 License
 
 Unity2Arduino-Android-Plugin is released under the MIT license.
