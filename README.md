@@ -1,7 +1,7 @@
 ## Unity2Arduino-Android-Plugin
 ###This is a Unity3D Plugin for Android Bluetooth connecting Arduino.
 
-####Note:Some bluetooth connection code was base on [Google BluetoothChat Example Project](https://github.com/googlesamples/android-BluetoothChat "") https://github.com/googlesamples/android-BluetoothChat.
+####Note:Some bluetooth connection code was base on [Google BluetoothChat Example Project](https://github.com/googlesamples/android-BluetoothChat "") .
 
 ###Part.1 Android Project
 
